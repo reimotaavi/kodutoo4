@@ -37,14 +37,14 @@ void loe_mootmed(unsigned int &pikkus, unsigned int &laius) {
 
 }
 
-void algvaartusta(char laburint, unsigned int pikkus, unsigned int laius) {
+void algvaartusta(char *&laburint, unsigned int pikkus, unsigned int laius) {
     unsigned int read = (2 * pikkus + 1);
     unsigned int veerud = (2 * laius + 1);
 
-    char *tabel = new char[read * veerud];
+    laburint = new char[read * veerud];
     for (unsigned int rida = 0; rida < read; rida++) {
         for (unsigned int veerg = 0; veerg < veerud; veerg++) {
-            std::cout << tabel[rida * veerud + veerg] << " ";
+            std::cout << laburint[rida * veerud + veerg] << " ";
         }
         std::cout << std::endl;
     }
@@ -54,7 +54,7 @@ void algvaartusta(char laburint, unsigned int pikkus, unsigned int laius) {
 int main() {
     unsigned int pikkus = 0;
     unsigned int laius = 0;
-    char laburint;
+    char *laburint = nullptr;
     loe_mootmed(pikkus, laius);
     algvaartusta(laburint, pikkus, laius);
 
